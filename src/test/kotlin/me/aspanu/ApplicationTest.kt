@@ -1,4 +1,4 @@
-package com.example
+package me.aspanu
 
 class ApplicationTest {
 }
