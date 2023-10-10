@@ -1,4 +1,3 @@
-
 val ktorVersion: String by project
 val kotlinVersion: String by project
 val logbackVersion: String by project
@@ -15,8 +14,8 @@ application {
     mainClass.set("me.aspanu.ApplicationKt")
 
     val isDevelopment: Boolean = project.ext.has("development")
-//    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment") TODO: Figure out config files
-    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
+    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment") // TODO: Figure out config files
+//    applicationDefaultJvmArgs = listOf("-Dio.ktor.development=true")
 }
 
 repositories {

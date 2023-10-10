@@ -6,9 +6,18 @@ data class Game(
     val players: MutableCollection<Player>,
     var round: Int,
     var state: GameState
-)
+) {
+    fun playersReady(): Boolean {
+        return players.all { it.state == PlayerState.READY }
+    }
+}
 
-data class Player(val id: Int, val name: String, val cards: MutableSet<Int>)
+data class Player(
+    val id: Int,
+    val name: String,
+    val cards: MutableSet<Int>,
+    var state: PlayerState = PlayerState.JOINED
+)
 
 enum class GameState {
     READY,
@@ -16,4 +25,9 @@ enum class GameState {
     FINISHED,
 }
 
+enum class PlayerState {
+    JOINED,
+    READY,
+    PLAYING,
+}
 //class GameId(val value: Int)

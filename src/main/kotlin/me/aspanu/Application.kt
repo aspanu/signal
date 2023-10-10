@@ -6,7 +6,8 @@ import io.ktor.server.netty.*
 import me.aspanu.plugins.configureRouting
 
 fun main() {
-    System.setProperty("io.ktor.development", "true")
+//    System.setProperty("io.ktor.development", "true")
+    System.setProperty("io.ktor.development", "false")
 
     embeddedServer(
         Netty,

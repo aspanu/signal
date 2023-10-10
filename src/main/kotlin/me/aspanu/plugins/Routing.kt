@@ -4,6 +4,7 @@ import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.html.*
 import io.ktor.server.http.content.*
+import io.ktor.server.request.*
 import io.ktor.server.routing.*
 import kotlinx.html.body
 import me.aspanu.components.gameLayout
@@ -35,8 +36,11 @@ fun Application.configureRouting() {
             }
         }
 
-        post("/game") {
-            val player = GameController.handleGameCreation()
+        post("/game/join") {
+            val postBody = call.receiveParameters()
+            println("PostBody name: $postBody")
+            val playerName = postBody["name"].toString()
+            val player = GameController.handleGameCreation(playerName)
             call.respondHtml(status = HttpStatusCode.OK) {
                 body { gameLayout(player) }
             }

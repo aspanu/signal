@@ -21,3 +21,7 @@ fun HTMLTag.hxTarget(value: String) {
 fun HTMLTag.hxPushUrl() {
     attributes += "hx-push-url" to "true"
 }
+
+fun HTMLTag.hxInclude(value: String) {
+    attributes += "hx-include" to value
+}

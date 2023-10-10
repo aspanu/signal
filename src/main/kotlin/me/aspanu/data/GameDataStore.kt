@@ -14,6 +14,7 @@ object GameDataStore {
     }
 
     fun getGame(): Game {
+        if (dataStore.size == 0) initializeNewGame()
         return dataStore.first()
     }
 }
